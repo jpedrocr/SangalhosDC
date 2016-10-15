@@ -14,8 +14,8 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('starting_year')->unsigned();
-            $table->integer('ending_year')->unsigned();
+            $table->integer('starting_year');
+            $table->integer('ending_year');
             $table->timestamps();
         });
     }

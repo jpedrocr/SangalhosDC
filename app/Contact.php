@@ -10,7 +10,7 @@ class Contact extends Model
   {
     return $this->belongsTo('App\Club');
   }
-  
+
   public function contact_details()
   {
     return $this->hasMany('App\ContactDetail');

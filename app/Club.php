@@ -25,4 +25,14 @@ class Club extends Model
   {
     return $this->hasOne('App\Location');
   }
+
+  public function relevant_events()
+  {
+    return $this->hasMany('App\RelevantEvent');
+  }
+
+  public function boards()
+  {
+    return $this->hasMany('App\Board');
+  }
 }

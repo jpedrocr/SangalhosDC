@@ -22,7 +22,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('name_id')->references('id')->on('names');
             $table->string('competition_level')->nullable();
             $table->string('image_slug')->nullable();
-            $table->integer('external_id')->unsigned()->nullable();
+            $table->integer('external_id')->nullable();
             $table->timestamps();
         });
     }

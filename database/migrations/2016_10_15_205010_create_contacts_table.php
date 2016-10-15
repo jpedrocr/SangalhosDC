@@ -14,6 +14,8 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('club_id')->unsigned();
+            $table->foreign('club_id')->references('id')->on('clubs');
             $table->string('media');
             $table->timestamps();
         });

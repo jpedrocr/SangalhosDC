@@ -1,4 +1,20 @@
+php artisan make:model Club
 php artisan make:model Name
+php artisan make:model Location
+php artisan make:model Contact
+php artisan make:model ContactDetail
+php artisan make:model Schedule
+php artisan make:model RelevantEvent
+php artisan make:model Entity
+php artisan make:model Person
+php artisan make:model Board
+php artisan make:model BoardMember
+php artisan make:model Season
+php artisan make:model Team
+php artisan make:model Competition
+php artisan make:model Game
+
+
 php artisan make:migration:schema create_names_table --schema=\
 "initials:string:nullable, \
 short:string:nullable, \
@@ -7,78 +23,61 @@ first:string:nullable, \
 last:string:nullable,
 owner_id:integer:unsigned:nullable, \
 owner_type:string:nullable"
-php artisan make:seeder NamesTableSeeder
 
-php artisan make:model Location
 php artisan make:migration:schema create_locations_table --schema=\
 "url:text, \
 latitude:string:nullable, \
 longitude:string:nullable, \
 description:string:nullable"
-php artisan make:seeder LocationsTableSeeder
 
-php artisan make:model Contact
-php artisan make:migration:schema create_contacts_table --schema=" \
+php artisan make:migration:schema create_clubs_table --schema=\
+"name_id:integer:unsigned:foreign, \
+location_id:integer:unsigned:foreign"
+
+php artisan make:migration:schema create_contacts_table --schema=\
+"club_id:integer:unsigned:foreign, \
 media:string"
-php artisan make:seeder ContactsTableSeeder
 
-php artisan make:model ContactDetail
 php artisan make:migration:schema create_contact_details_table --schema=\
 "contact_id:integer:unsigned:foreign, \
 description:string:nullable, \
 data:string, \
 detail:string:nullable"
 
-php artisan make:model Club
-php artisan make:migration:schema create_clubs_table --schema=\
-"name_id:integer:unsigned:foreign, \
-location_id:integer:unsigned:foreign"
-php artisan make:seeder ClubsTableSeeder
-
-php artisan make:migration:pivot clubs contacts
-
-php artisan make:model Schedule
 php artisan make:migration:schema create_schedules_table --schema=\
 "club_id:integer:unsigned:foreign, \
 description:string, \
 detail:string"
 
-php artisan make:model RelevantEvent
 php artisan make:migration:schema create_relevant_events_table --schema=\
 "club_id:integer:unsigned:foreign, \
 year:integer:nullable, \
 at:datetime:nullable, \
 description:string"
 
-php artisan make:model Entity
 php artisan make:migration:schema create_entities_table --schema=\
 "name_id:integer:unsigned:foreign, \
 description:string:nullable, \
 image_slug:string:nullable, \
 url:string:nullable"
 
-php artisan make:model Person
 php artisan make:migration:schema create_people_table --schema=\
 "name_id:integer:unsigned:foreign, \
 image_slug:string:nullable"
 
-php artisan make:model Board
 php artisan make:migration:schema create_boards_table --schema=\
 "club_id:integer:unsigned:foreign, \
 description:string"
 
-php artisan make:model BoardMember
 php artisan make:migration:schema create_board_members_table --schema=\
 "board_id:integer:unsigned:foreign, \
 person_id:integer:unsigned:foreign, \
 role:string"
 
-php artisan make:model Season
 php artisan make:migration:schema create_seasons_table --schema=\
 "starting_year:integer, \
 ending_year:integer"
 
-php artisan make:model Team
 php artisan make:migration:schema create_teams_table --schema=\
 "season_id:integer:unsigned:foreign, \
 club_id:integer:unsigned:foreign, \
@@ -87,12 +86,10 @@ competition_level:string:nullable, \
 image_slug:string:nullable, \
 external_id:integer:nullable"
 
-php artisan make:model Competition
 php artisan make:migration:schema create_competitions_table --schema=\
 "season_id:integer:unsigned:foreign, \
 description:string"
 
-php artisan make:model Game
 php artisan make:migration:schema create_games_table --schema=\
 "competition_id:integer:unsigned:foreign, \
 external_1st_id:integer:nullable, \
@@ -101,3 +98,6 @@ visited team:string, \
 visiting_team:string, \
 in:boolean, \
 out:boolean"
+
+
+php artisan make:seeder ClubsTableSeeder

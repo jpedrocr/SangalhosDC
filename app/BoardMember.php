@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BoardMember extends Model
 {
-    //
+  public function board()
+  {
+    return $this->belongsTo('App\Board');
+  }
 }

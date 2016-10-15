@@ -6,6 +6,11 @@ use App\Name;
 use App\Location;
 use App\Contact;
 use App\ContactDetail;
+use App\Schedule;
+use App\RelevantEvent;
+use App\Person;
+use App\Board;
+use App\BoardMember;
 use Illuminate\Database\Seeder;
 
 class CleanTablesSeeder extends Seeder
@@ -18,10 +23,15 @@ class CleanTablesSeeder extends Seeder
   public function run()
   {
     User::getQuery()->delete();
+    BoardMember::getQuery()->delete();
+    Board::getQuery()->delete();
+    Person::getQuery()->delete();
+    RelevantEvent::getQuery()->delete();
+    Schedule::getQuery()->delete();
+    ContactDetail::getQuery()->delete();
+    Contact::getQuery()->delete();
     Club::getQuery()->delete();
     Name::getQuery()->delete();
     Location::getQuery()->delete();
-    ContactDetail::getQuery()->delete();
-    Contact::getQuery()->delete();
   }
 }

@@ -62,10 +62,6 @@ class SeasonsTableSeeder extends Seeder
     $season_2016_2017 = Season::create([ 'starting_year' => 2016, 'ending_year' => 2017, ]);
 
     $name = Name::create([ 'full' => 'Aliança Sangalhos', ]);
-    $team = Team::create([ 'season_id' => $season_2016_2017->id, 'club_id' => $club->id, 'name_id' => $name->id, 'agegroup' => 'Seniores', 'level' => 'Proliga', 'gender' => 'Masculinos', 'image_slug' => 'senioresA.jpg', 'external_id' => 24833, 'internal_id' => 'seniorAM', ]);
-    $name->owner_id = $team->id; $name->owner_type = 'App\Team'; $name->save();
-
-    $name = Name::create([ 'full' => 'Aliança Sangalhos', ]);
     $team = Team::create([ 'season_id' => $season_2016_2017->id, 'club_id' => $club->id, 'name_id' => $name->id, 'agegroup' => 'Seniores', 'level' => 'Proliga', 'gender' => 'Masculinos', 'image_slug' => 'seniorAM2016.jpg', 'external_id' => 27451, 'internal_id' => 'seniorAM2016', ]);
     $name->owner_id = $team->id; $name->owner_type = 'App\Team'; $name->save();
 

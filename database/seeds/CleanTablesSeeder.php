@@ -11,6 +11,9 @@ use App\RelevantEvent;
 use App\Person;
 use App\Board;
 use App\BoardMember;
+use App\Entity;
+use App\Season;
+use App\Team;
 use Illuminate\Database\Seeder;
 
 class CleanTablesSeeder extends Seeder
@@ -23,6 +26,9 @@ class CleanTablesSeeder extends Seeder
   public function run()
   {
     User::getQuery()->delete();
+    Team::getQuery()->delete();
+    Season::getQuery()->delete();
+    Entity::getQuery()->delete();
     BoardMember::getQuery()->delete();
     Board::getQuery()->delete();
     Person::getQuery()->delete();

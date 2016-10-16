@@ -14,6 +14,9 @@ class CreateEntitiesTable extends Migration
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('club_id')->unsigned();
+            $table->foreign('club_id')->references('id')->on('clubs');
+            $table->string('colaboration_type');
             $table->integer('name_id')->unsigned();
             $table->foreign('name_id')->references('id')->on('names');
             $table->string('description')->nullable();

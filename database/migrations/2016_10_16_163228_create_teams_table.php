@@ -20,7 +20,9 @@ class CreateTeamsTable extends Migration
             $table->foreign('club_id')->references('id')->on('clubs');
             $table->integer('name_id')->unsigned();
             $table->foreign('name_id')->references('id')->on('names');
-            $table->string('competition_level')->nullable();
+            $table->string('agegroup')->nullable();
+            $table->string('level')->nullable();
+            $table->string('gender')->nullable();
             $table->string('image_slug')->nullable();
             $table->integer('external_id')->nullable();
             $table->timestamps();

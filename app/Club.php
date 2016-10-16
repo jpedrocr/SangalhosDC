@@ -37,4 +37,20 @@ class Club extends Model
   {
     return $this->hasMany('App\Board');
   }
+
+  public function sponsors()
+  {
+    return $this->hasMany('App\Entity')->where('colaboration_type', 'sponsorship');
+  }
+
+  public function partners()
+  {
+    return $this->hasMany('App\Entity')->where('colaboration_type', 'partnership');
+  }
+
+  public function teams()
+  {
+    return $this->hasMany('App\Team');
+  }
+
 }

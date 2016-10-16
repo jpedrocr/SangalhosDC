@@ -31,13 +31,22 @@ Route::get('relevant-events', function () {
   );
 });
 
+Route::get('entities', function () {
+  return response(
+    Club::with('sponsors.name', 'partners.name')
+      ->first()
+      ->makeHidden(['description0', 'description1', 'description2', 'nipc'])
+      ->toJson()
+  );
+});
+
 Route::get('contacts', function () {
   return response(
-  Club::with('name', 'contacts.contact_details', 'schedules', 'location')
-  ->first()
-  ->makeHidden(['description0', 'description1', 'description2', 'nipc'])
-  ->toJson()
-);
+    Club::with('name', 'contacts.contact_details', 'schedules', 'location')
+    ->first()
+    ->makeHidden(['description0', 'description1', 'description2', 'nipc'])
+    ->toJson()
+  );
 });
 
 Route::get('footer', function () {

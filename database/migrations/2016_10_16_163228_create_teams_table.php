@@ -25,6 +25,7 @@ class CreateTeamsTable extends Migration
             $table->string('gender')->nullable();
             $table->string('image_slug')->nullable();
             $table->integer('external_id')->nullable();
+            $table->string('internal_id')->nullable();
             $table->timestamps();
         });
     }

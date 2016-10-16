@@ -92,7 +92,8 @@ agegroup:string:nullable, \
 level:string:nullable, \
 gender:string:nullable, \
 image_slug:string:nullable, \
-external_id:integer:nullable"
+external_id:integer:nullable, \
+internal_id:integer:nullable"
 
 php artisan make:migration:schema create_competitions_table --schema=\
 "season_id:integer:unsigned:foreign, \

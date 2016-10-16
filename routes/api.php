@@ -1,6 +1,7 @@
 <?php
 
 use App\Club;
+use App\Season;
 use Illuminate\Http\Request;
 
 /*
@@ -36,6 +37,14 @@ Route::get('entities', function () {
     Club::with('sponsors.name', 'partners.name')
       ->first()
       ->makeHidden(['description0', 'description1', 'description2', 'nipc'])
+      ->toJson()
+  );
+});
+
+Route::get('teams', function () {
+  return response(
+    Season::with('teams.name')
+      ->get()
       ->toJson()
   );
 });

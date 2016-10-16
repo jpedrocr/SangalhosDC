@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Club extends Model
 {
+  protected $hidden = ['id', 'created_at', 'updated_at', 'name_id', 'location_id'];
+
   public function name()
   {
     return $this->MorphOne('App\Name', 'owner');
@@ -23,7 +25,7 @@ class Club extends Model
 
   public function location()
   {
-    return $this->hasOne('App\Location');
+    return $this->belongsTo('App\Location');
   }
 
   public function relevant_events()

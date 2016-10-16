@@ -26,9 +26,9 @@ class ClubsTableSeeder extends Seeder
 
     $location = Location::create([ 'url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.0260872638814!2d-8.46805255693636!3d40.48392684798148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2307e108e6ee71%3A0xef2e5b0afbb46f7b!2sPavilhao+Sangalhos!5e1!3m2!1spt-PT!2spt!4v1463173422890', ]);
 
-    $club = Club::create([ 'name_id' => $name->id, 'location_id' => $location->id, ]);
+    $club = Club::create([ 'name_id' => $name->id, 'location_id' => $location->id, 'nipc' => 501302220, 'description0' => 'Instituição de Utilidade Pública', 'description1' => 'Fundado em janeiro de 1940', 'description2' => 'Medalha de Bons Serviços Desportivos', ]);
 
-    $name->owner_id = $club->id; $name->owner_type = 'Club'; $name->save();
+    $name->owner_id = $club->id; $name->owner_type = 'App\Club'; $name->save();
 
     $morada = Contact::create([ 'club_id' => $club->id, 'media' => 'Morada', ]);
     ContactDetail::create([ 'contact_id' => $morada->id, 'description' => '0', 'data' => 'Rua Feliciano Godinho Neves', ]);
@@ -75,62 +75,77 @@ class ClubsTableSeeder extends Seeder
 
     $name = Name::create([ 'first' => 'Jorge', 'last' => 'Ribeiro', 'full' => 'Jorge Ribeiro', ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-jorge-ribeiro.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'Presidente da Direção', ]);
 
     $name = Name::create([ 'first' => 'Rui', 'last' => 'Gradeço', 'full' => 'Rui Gradeço' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-rui-gradeco.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'Vice-Presidente da Direção', ]);
 
     $name = Name::create([ 'first' => 'Álvaro', 'last' => 'Calvo', 'full' => 'Álvaro Calvo' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-alvaro-calvo.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'Vogal da Direção', ]);
 
     $name = Name::create([ 'first' => 'José', 'last' => 'Maia', 'full' => 'José Maia' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-jose-maia.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'V. P. Área Desportiva', ]);
 
     $name = Name::create([ 'first' => 'Teresa', 'last' => 'Figueiredo', 'full' => 'Teresa Figueiredo' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-teresa-figueiredo.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'V. P. Área de Marketing e Relações Públicas', ]);
 
     $name = Name::create([ 'first' => 'Débora', 'last' => 'Tavares', 'full' => 'Débora Tavares' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-debora-tavares.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'Vogal Área de Marketing e Relações Públicas', ]);
 
     $name = Name::create([ 'first' => 'Mário', 'last' => 'Rocha', 'full' => 'Mário Rocha' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-mario-rocha.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'V. P. Área do Património', ]);
 
     $name = Name::create([ 'first' => 'Germano', 'last' => 'Ribeiro', 'full' => 'Germano Ribeiro' ]);
     $person = Person::create([ 'name_id' => $name->id, 'image_slug' => 'orgaos-germano-ribeiro.png', ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $direcao->id, 'person_id' => $person->id, 'role' => 'Vogal Área do Património', ]);
 
     $name = Name::create([ 'first' => 'Sérgio', 'last' => 'Santos', 'full' => 'Sérgio Santos' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $a_geral->id, 'person_id' => $person->id, 'role' => 'Presidente', ]);
 
     $name = Name::create([ 'first' => 'Humberto', 'last' => 'Mendes', 'full' => 'Humberto Mendes' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $a_geral->id, 'person_id' => $person->id, 'role' => 'Vice-Presidente', ]);
 
     $name = Name::create([ 'first' => 'Isilda', 'last' => 'Silva', 'full' => 'Isilda Silva' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $a_geral->id, 'person_id' => $person->id, 'role' => 'Secretária', ]);
 
     $name = Name::create([ 'first' => 'Jorge Humberto', 'last' => 'Mendes', 'full' => 'Jorge Humberto Mendes', ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $c_fiscal->id, 'person_id' => $person->id, 'role' => 'Presidente', ]);
 
     $name = Name::create([ 'first' => 'Jorge', 'last' => 'Silva', 'full' => 'Jorge Silva' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $c_fiscal->id, 'person_id' => $person->id, 'role' => 'Secretário', ]);
 
     $name = Name::create([ 'first' => 'Jorge', 'last' => 'Soares', 'full' => 'Jorge Soares' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $c_fiscal->id, 'person_id' => $person->id, 'role' => 'Secretário', ]);
 
     $name = Name::create([ 'first' => 'Jorge', 'last' => 'Cunha', 'full' => 'Jorge Cunha' ]);
     $person = Person::create([ 'name_id' => $name->id, ]);
+    $name->owner_id = $person->id; $name->owner_type = 'App\Person'; $name->save();
     BoardMember::create([ 'board_id' => $c_fiscal->id, 'person_id' => $person->id, 'role' => 'Vogal', ]);
 
   }

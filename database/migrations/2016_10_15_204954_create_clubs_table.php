@@ -18,6 +18,10 @@ class CreateClubsTable extends Migration
             $table->foreign('name_id')->references('id')->on('names');
             $table->integer('location_id')->unsigned();
             $table->foreign('location_id')->references('id')->on('locations');
+            $table->string('description0')->nullable();
+            $table->string('description1')->nullable();
+            $table->string('description2')->nullable();
+            $table->integer('nipc')->unsigned();
             $table->timestamps();
         });
     }

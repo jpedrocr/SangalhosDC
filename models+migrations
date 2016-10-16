@@ -32,7 +32,11 @@ description:string:nullable"
 
 php artisan make:migration:schema create_clubs_table --schema=\
 "name_id:integer:unsigned:foreign, \
-location_id:integer:unsigned:foreign"
+location_id:integer:unsigned:foreign, \
+nipc:integer:unsigned, \
+description0:string:nullable", \
+description1:string:nullable", \
+description2:string:nullable"
 
 php artisan make:migration:schema create_contacts_table --schema=\
 "club_id:integer:unsigned:foreign, \

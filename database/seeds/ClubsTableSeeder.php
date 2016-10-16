@@ -7,7 +7,6 @@ use App\Contact;
 use App\ContactDetail;
 use App\Schedule;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
 
 class ClubsTableSeeder extends Seeder
 {

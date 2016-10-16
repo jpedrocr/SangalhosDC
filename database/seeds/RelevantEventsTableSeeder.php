@@ -3,6 +3,7 @@
 use App\Club;
 use App\RelevantEvent;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class RelevantEventsTableSeeder extends Seeder
 {

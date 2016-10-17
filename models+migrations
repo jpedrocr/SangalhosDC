@@ -109,8 +109,84 @@ in:boolean, \
 out:boolean"
 
 
+
+
+
+php artisan make:model Page
+php artisan make:model Category
+php artisan make:model Post
+php artisan make:model ContentBreak
+php artisan make:model ContentHeader
+php artisan make:model ContentParagraph
+php artisan make:model ContentImage
+php artisan make:model ContentQA
+php artisan make:model ContentLink
+
+#php artisan make:migration:schema create_page_table --schema=\
+"slug:string, \
+tittle:string, \
+subtittle:string:nullable"
+
+#php artisan make:migration:schema create_category_table --schema=\
+"description:string"
+
+#php artisan make:migration:schema create_post_table --schema=\
+"category_id:integer:unsigned:foreign, \
+slug:string:nullable, \
+tittle:string:nullable, \
+subtittle:string:nullable, \
+image_slug:string"
+
+#php artisan make:migration:pivot pages posts
+
+#php artisan make:migration:schema create_element_table --schema=\
+"post_id:integer:unsigned:foreign, \
+order:integer:unsigned, \
+content_id:integer:unsigned:foreign, \
+content_type:string"
+
+#php artisan make:migration:schema create_content_break_table
+
+#php artisan make:migration:schema create_content_header_table --schema=\
+"content:string, \
+level:string:nullable, \
+class:string:nullable"
+
+#php artisan make:migration:schema create_content_paragraph_table --schema=\
+"content:string, \
+class:string:nullable"
+
+#php artisan make:migration:schema create_content_image_table --schema=\
+"url:string, \
+description:string, \
+class:string:nullable"
+
+#php artisan make:migration:schema create_content_qa_table --schema=\
+"question:string, \
+answer:string, \
+class:string:nullable"
+
+#php artisan make:migration:schema create_content_link_table --schema=\
+"url:string, \
+description:string, \
+link_type:string, \
+class:string:nullable"
+
+
+
+
 php artisan make:seeder ClubsTableSeeder
 php artisan make:seeder RelevantEventTableSeeder
 php artisan make:seeder BoardsTableSeeder
 php artisan make:seeder EntitiesTableSeeder
 php artisan make:seeder SeasonsTableSeeder
+
+
+
+
+
+
+
+
+
+, text.plain.null-grammar

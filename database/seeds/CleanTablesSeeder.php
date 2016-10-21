@@ -14,6 +14,17 @@ use App\BoardMember;
 use App\Entity;
 use App\Season;
 use App\Team;
+use App\Page;
+use App\Category;
+use App\Post;
+use App\ContentBreak;
+use App\ContentHeader;
+use App\ContentHTML;
+use App\ContentImage;
+use App\ContentLink;
+use App\ContentParagraph;
+use App\ContentQA;
+use App\Element;
 use Illuminate\Database\Seeder;
 
 class CleanTablesSeeder extends Seeder
@@ -25,6 +36,17 @@ class CleanTablesSeeder extends Seeder
    */
   public function run()
   {
+    Element::getQuery()->delete();
+    ContentQA::getQuery()->delete();
+    ContentParagraph::getQuery()->delete();
+    ContentLink::getQuery()->delete();
+    ContentImage::getQuery()->delete();
+    ContentHTML::getQuery()->delete();
+    ContentHeader::getQuery()->delete();
+    ContentBreak::getQuery()->delete();
+    Post::getQuery()->delete();
+    Category::getQuery()->delete();
+    Page::getQuery()->delete();
     User::getQuery()->delete();
     Team::getQuery()->delete();
     Season::getQuery()->delete();

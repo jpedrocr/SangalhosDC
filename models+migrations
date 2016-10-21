@@ -121,57 +121,66 @@ php artisan make:model ContentParagraph
 php artisan make:model ContentImage
 php artisan make:model ContentQA
 php artisan make:model ContentLink
+php artisan make:model ContentHTML
 
-#php artisan make:migration:schema create_page_table --schema=\
+php artisan make:migration:schema create_pages_table --schema=\
 "slug:string, \
-tittle:string, \
+menu_tittle:string:nullable, \
+tittle:string:nullable, \
 subtittle:string:nullable"
 
-#php artisan make:migration:schema create_category_table --schema=\
+php artisan make:migration:schema create_categories_table --schema=\
 "description:string"
 
-#php artisan make:migration:schema create_post_table --schema=\
+php artisan make:migration:schema create_posts_table --schema=\
 "category_id:integer:unsigned:foreign, \
 slug:string:nullable, \
 tittle:string:nullable, \
 subtittle:string:nullable, \
-image_slug:string"
+description:string:nullable, \
+image_slug:string:nullable, \
+published_at:datetime:nullable, \
+happening_at:datetime:nullable"
 
-#php artisan make:migration:pivot pages posts
+php artisan make:migration:pivot pages posts
 
-#php artisan make:migration:schema create_element_table --schema=\
+php artisan make:migration:schema create_elements_table --schema=\
 "post_id:integer:unsigned:foreign, \
 order:integer:unsigned, \
-content_id:integer:unsigned:foreign, \
+content_id:integer:unsigned, \
 content_type:string"
 
-#php artisan make:migration:schema create_content_break_table
+php artisan make:migration:schema create_content_breaks_table --schema=\
+"class:string:nullable"
 
-#php artisan make:migration:schema create_content_header_table --schema=\
+php artisan make:migration:schema create_content_headers_table --schema=\
 "content:string, \
 level:string:nullable, \
 class:string:nullable"
 
-#php artisan make:migration:schema create_content_paragraph_table --schema=\
-"content:string, \
+php artisan make:migration:schema create_content_paragraphs_table --schema=\
+"content:text, \
 class:string:nullable"
 
-#php artisan make:migration:schema create_content_image_table --schema=\
+php artisan make:migration:schema create_content_images_table --schema=\
 "url:string, \
 description:string, \
 class:string:nullable"
 
-#php artisan make:migration:schema create_content_qa_table --schema=\
-"question:string, \
-answer:string, \
+php artisan make:migration:schema create_content_qas_table --schema=\
+"question:text, \
+answer:text, \
 class:string:nullable"
 
-#php artisan make:migration:schema create_content_link_table --schema=\
+php artisan make:migration:schema create_content_links_table --schema=\
 "url:string, \
 description:string, \
 link_type:string, \
 class:string:nullable"
 
+php artisan make:migration:schema create_content_htmls_table --schema=\
+"html_content:text, \
+class:string:nullable"
 
 
 
@@ -181,6 +190,9 @@ php artisan make:seeder BoardsTableSeeder
 php artisan make:seeder EntitiesTableSeeder
 php artisan make:seeder SeasonsTableSeeder
 
+php artisan make:seeder PagesTableSeeder
+php artisan make:seeder CategoriesTableSeeder
+php artisan make:seeder ElementsTableSeeder
 
 
 

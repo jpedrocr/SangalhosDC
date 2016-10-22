@@ -27,17 +27,6 @@ class EntitiesTableSeeder extends Seeder
     ]);
     $name->owner_id = $entity->id; $name->owner_type = 'App\Entity'; $name->save();
 
-    $name = Name::create([ 'full' => 'Aliança', ]);
-    $entity = Entity::create([
-      'club_id' => $club->id,
-      'colaboration_type' => 'sponsorship',
-      'name_id' => $name->id,
-      'description' => 'Vinhos de Portugal',
-      'image_slug' => 'parceiros-alian%C3%A7a.png',
-      'url' => 'http://www.alianca.pt/',
-    ]);
-    $name->owner_id = $entity->id; $name->owner_type = 'App\Entity'; $name->save();
-
     $name = Name::create([ 'full' => 'Iberciclo', ]);
     $entity = Entity::create([
       'club_id' => $club->id,

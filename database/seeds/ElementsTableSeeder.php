@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use App\Post;
 use App\Element;
 use App\ContentBreak;
@@ -9,6 +10,8 @@ use App\ContentImage;
 use App\ContentLink;
 use App\ContentParagraph;
 use App\ContentQA;
+use App\Board;
+use App\Club;
 use Illuminate\Database\Seeder;
 
 class ElementsTableSeeder extends Seeder
@@ -45,6 +48,24 @@ class ElementsTableSeeder extends Seeder
     Element::create([ 'post_id' => $post_id, 'order' => 7,  'content_type' => 'App\ContentParagraph', 'content_id' => ContentParagraph::create([
       'content' => 'Entre os diversos reconhecimentos que o Sangalhos tem prestado aos seus sócios mais dedicados, destacamos os de Sócio Honorário aos senhores: Manuel Alves Mendes, Ivo Augusto Neves, Dr. Carlos Paiva de Castro e de Sócios de Mérito aos Senhores: Alves Barbosa, Fernando Pinto Gradeço, Feliciano Godinho Neves e Humberto Simões Mendes.',
     ])->id, ]);
+
+    //  App\Page::where('slug', 'sdc-orgaos')->with('posts.elements.content.board_members.person.name')->get()
+    $post_id = Post::where('slug', 'sdc-orgaos-direcao')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Board', 'content_id' => Board::where(
+      'description', 'Direção'
+    )->first()->id, ]);
+    $post_id = Post::where('slug', 'sdc-orgaos-ageral')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Board', 'content_id' => Board::where(
+      'description', 'Assembleia Geral'
+    )->first()->id, ]);
+    $post_id = Post::where('slug', 'sdc-orgaos-cfiscal')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Board', 'content_id' => Board::where(
+      'description', 'Conselho Fiscal'
+    )->first()->id, ]);
+
+    //  App\Page::where('slug', 'sdc-datas')->with('posts.elements.content.relevant_events')->get()->toArray()
+    $post_id = Post::where('slug', 'sdc-datas')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Club', 'content_id' => Club::first()->id, ]);
 
     $post_id = Post::where('slug', 'sdc-estatutos')->first()->id;
     Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentParagraph', 'content_id' => ContentParagraph::create([
@@ -84,6 +105,16 @@ class ElementsTableSeeder extends Seeder
       'link_type' => 'internal',
     ])->id, ]);
 
+    // App\Page::where('slug', 'equipas')->with('posts.elements.content.seasons.teams')->get()->toArray()
+    $post_id = Post::where('slug', 'equipas')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Club', 'content_id' => Club::first()->id, ]);
+
+    // App\Page::where('slug', 'parcerias')->with('posts.elements.content.sponsors.name', 'posts.elements.content.partners.name')->get()->toArray()
+    $post_id = Post::where('slug', 'parcerias-patrocinadores')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Club', 'content_id' => Club::first()->id, ]);
+    $post_id = Post::where('slug', 'parcerias-parceiros')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Club', 'content_id' => Club::first()->id, ]);
+
     $post_id = Post::where('slug', 'produtos')->first()->id;
     Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentHTML', 'content_id' => ContentHTML::create([
       'html_content' => 'Para informações ou encomendas dos produtos do SDC contacte a secretaria do clube através do e-mail <a href="mailto:sdc.geral@sapo.pt">sdc.geral@sapo.pt</a> ou procure na loja azul, no Complexo Desportivo de Sangalhos.',
@@ -109,6 +140,28 @@ class ElementsTableSeeder extends Seeder
       'url' => 'produtos-0.jpg',
       'description' => 'Produtos',
     ])->id, ]);
+
+    // App\Page::where('slug', 'contactos')->with('posts.elements.content.contacts.contact_details')->get()->toArray()
+    $post_id = Post::where('slug', 'contactos')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Club', 'content_id' => Club::first()->id, ]);
+
+    // App\Page::where('slug', 'noticias')->with('posts.elements.content.posts.elements.content')->get()->toArray()
+    $post_id = Post::where('slug', 'noticias')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Category', 'content_id' => Category::where(
+      'description', 'Notícia'
+    )->first()->id, ]);
+
+    // App\Page::where('slug', 'eventos')->with('posts.elements.content.posts.elements.content')->get()->toArray()
+    $post_id = Post::where('slug', 'eventos')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Category', 'content_id' => Category::where(
+      'description', 'Evento'
+    )->first()->id, ]);
+
+    // App\Page::where('slug', 'galeria')->with('posts.elements.content.posts.elements.content')->get()->toArray()
+    $post_id = Post::where('slug', 'galeria')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\Category', 'content_id' => Category::where(
+      'description', 'Galeria'
+    )->first()->id, ]);
 
     $post_id = Post::where('slug', 'n0')->first()->id;
     Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentParagraph', 'content_id' => ContentParagraph::create([
@@ -564,6 +617,38 @@ class ElementsTableSeeder extends Seeder
     Element::create([ 'post_id' => $post_id, 'order' => 17,  'content_type' => 'App\ContentParagraph', 'content_id' => ContentParagraph::create([
       'content' => '18:30 - GD Gafanha x Sangalhos A/ Moreira - Campeonato Distrital de Sub16 Masculinos',
     ])->id, ]);
+
+    $post_id = Post::where('slug', 'n5')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentLink', 'content_id' => ContentLink::create([
+      'url' => 'n6',
+      'description' => 'Ver Galeria',
+      'link_type' => 'post',
+    ])->id, ]);
+    Element::create([ 'post_id' => $post_id, 'order' => 1,  'content_type' => 'App\ContentLink', 'content_id' => ContentLink::create([
+      'url' => 'n2',
+      'description' => 'Ver Notícia',
+      'link_type' => 'post',
+    ])->id, ]);
+
+    $post_id = Post::where('slug', 'n6')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => '6.1.JPG'])->id, ]);
+    Element::create([ 'post_id' => $post_id, 'order' => 1,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => '6.2.JPG'])->id, ]);
+    Element::create([ 'post_id' => $post_id, 'order' => 2,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => '6.3.JPG'])->id, ]);
+
+    $post_id = Post::where('slug', 'seniorAMxginasio_20160930')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => 'IMG_0508.JPG'])->id, ]);
+
+    $post_id = Post::where('slug', 'sdc_cadetes_B_20161008')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => 'IMG_1038.JPG'])->id, ]);
+
+    $post_id = Post::where('slug', 'sdc_20161015_juniores')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => 'IMG_9867.JPG'])->id, ]);
+
+    $post_id = Post::where('slug', 'sdc_20161015_cadetes_A')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => 'IMG_0196.JPG'])->id, ]);
+
+    $post_id = Post::where('slug', 'sdc_20161015_seniores_A')->first()->id;
+    Element::create([ 'post_id' => $post_id, 'order' => 0,  'content_type' => 'App\ContentImage', 'content_id' => ContentImage::create(['url' => 'IMG_0886.JPG'])->id, ]);
 
   }
 }

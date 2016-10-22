@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-  protected $hidden = ['id', 'created_at', 'updated_at', 'name_id', 'season_id', 'club_id'];
+  protected $hidden = ['id', 'created_at', 'updated_at', 'name_id', 'season_id'];
 
   public function name()
   {
@@ -16,10 +16,5 @@ class Team extends Model
   public function season()
   {
     return $this->belongsTo('App\Season');
-  }
-
-  public function club()
-  {
-    return $this->belongsTo('App\Club');
   }
 }

@@ -81,12 +81,12 @@ image_slug:string:nullable, \
 url:string:nullable"
 
 php artisan make:migration:schema create_seasons_table --schema=\
-"starting_year:integer, \
+"club_id:integer:unsigned:foreign, \
+starting_year:integer, \
 ending_year:integer"
 
 php artisan make:migration:schema create_teams_table --schema=\
 "season_id:integer:unsigned:foreign, \
-club_id:integer:unsigned:foreign, \
 name_id:integer:unsigned:foreign, \
 agegroup:string:nullable, \
 level:string:nullable, \
@@ -164,7 +164,7 @@ class:string:nullable"
 
 php artisan make:migration:schema create_content_images_table --schema=\
 "url:string, \
-description:string, \
+description:string:nullable, \
 class:string:nullable"
 
 php artisan make:migration:schema create_content_qas_table --schema=\

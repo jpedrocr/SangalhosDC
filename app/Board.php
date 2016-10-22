@@ -17,4 +17,9 @@ class Board extends Model
   {
     return $this->hasMany('App\BoardMember');
   }
+
+  public function element()
+  {
+    return $this->MorphOne('App\Element', 'content');
+  }
 }

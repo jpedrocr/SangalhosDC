@@ -15,7 +15,7 @@ class CreateContentImagesTable extends Migration
         Schema::create('content_images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('class')->nullable();
             $table->timestamps();
         });

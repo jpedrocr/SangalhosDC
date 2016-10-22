@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Club extends Model
 {
-  protected $hidden = ['id', 'created_at', 'updated_at', 'name_id', 'location_id'];
+  protected $hidden = ['id', 'created_at', 'updated_at', 'name_id', 'location_id', 'description0', 'description1', 'description2', 'nipc'];
 
   public function name()
   {
@@ -48,9 +48,13 @@ class Club extends Model
     return $this->hasMany('App\Entity')->where('colaboration_type', 'partnership');
   }
 
-  public function teams()
+  public function seasons()
   {
-    return $this->hasMany('App\Team');
+    return $this->hasMany('App\Season');
   }
 
+  public function element()
+  {
+    return $this->MorphOne('App\Element', 'content');
+  }
 }

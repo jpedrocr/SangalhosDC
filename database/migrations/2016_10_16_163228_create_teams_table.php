@@ -16,8 +16,6 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->integer('season_id')->unsigned();
             $table->foreign('season_id')->references('id')->on('seasons');
-            $table->integer('club_id')->unsigned();
-            $table->foreign('club_id')->references('id')->on('clubs');
             $table->integer('name_id')->unsigned();
             $table->foreign('name_id')->references('id')->on('names');
             $table->string('agegroup')->nullable();

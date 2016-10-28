@@ -20,4 +20,8 @@ class Post extends Model
   {
     return $this->hasMany('App\Element');
   }
+  public function element()
+  {
+    return $this->MorphOne('App\Element', 'content');
+  }
 }

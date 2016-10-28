@@ -182,6 +182,62 @@ class CategoriesTableSeeder extends Seeder
       'published_at' => Carbon::create(2016, 10, 18, 0, 0, 0, 'Europe/Lisbon'),
     ]);
 
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'agenda_20161023',
+      'image_slug' => 'agenda_20161023.jpg',
+      'tittle' => 'Agenda da semana',
+      'published_at' => Carbon::create(2016, 10, 18, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'entrevista_luis_cardoso',
+      'image_slug' => 'entrevista_luis_cardoso.jpg',
+      'tittle' => 'Entrevista a Luís Cardoso',
+      'published_at' => Carbon::create(2016, 10, 22, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'resultados_da_semana_20161023',
+      'image_slug' => 'resultados_da_semana_20161023.jpg',
+      'tittle' => 'Resultados da semana',
+      'published_at' => Carbon::create(2016, 10, 24, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'cronica_20161023',
+      'image_slug' => 'cronica_20161023.jpg',
+      'tittle' => 'Sangalhos vence de novo em casa',
+      'published_at' => Carbon::create(2016, 10, 24, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'concentracao_sub10_20161023',
+      'image_slug' => 'concentracao_sub10_20161023.jpg',
+      'tittle' => 'Concentração de Sub10 no Gica',
+      'published_at' => Carbon::create(2016, 10, 25, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'agenda_20161030',
+      'image_slug' => 'agenda_20161030.jpg',
+      'tittle' => 'Agenda do fim de semana',
+      'published_at' => Carbon::create(2016, 10, 26, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'parceria_fisis',
+      'image_slug' => 'parceria_fisis.jpg',
+      'tittle' => 'Parceria com Fisis - Fisioterapia e bem-estar',
+      'published_at' => Carbon::create(2016, 10, 27, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'lxviii_taca_de_portugal_masculina',
+      'image_slug' => 'lxviii_taca_de_portugal_masculina.jpg',
+      'tittle' => 'LXVIII Taça de Portugal Masculina',
+      'published_at' => Carbon::create(2016, 10, 27, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+    Post::create([ 'category_id' => $cat_noticia_id,
+      'slug' => 'entrevista_pedro_maia',
+      'image_slug' => 'entrevista_pedro_maia.jpg',
+      'tittle' => 'Entrevista a Pedro Maia',
+      'published_at' => Carbon::create(2016, 10, 28, 0, 0, 0, 'Europe/Lisbon'),
+    ]);
+
     Post::create([ 'category_id' => $cat_evento_id,
       'slug' => 'n5',
       'image_slug' => '5.JPG',

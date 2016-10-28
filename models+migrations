@@ -14,6 +14,9 @@ php artisan make:model Team
 php artisan make:model Competition
 php artisan make:model Game
 
+php artisan make:model Player
+php artisan make:model Week
+
 
 php artisan make:migration:schema create_names_table --schema=\
 "initials:string:nullable, \
@@ -108,8 +111,22 @@ visiting_team:string, \
 in:boolean, \
 out:boolean"
 
+php artisan make:migration:schema create_weeks_table --schema=\
+"sunday:datetime, \
+year:integer, \
+week_of_year:integer"
 
-
+php artisan make:migration:schema create_games_table --schema=\
+"week_id:integer:unsigned:nullable:foreign, \
+happening_at:datetime:nullable, \
+team_id:integer:unsigned:nullable:foreign, \
+other_team:string:nullable, \
+home:boolean, \
+neutral:boolean:default(false), \
+game_id:integer:unsigned:nullable, \
+fpb_id:integer:unsigned:nullable, \
+competition:string, \
+location:string:nullable"
 
 
 php artisan make:model Page
@@ -189,6 +206,8 @@ php artisan make:seeder RelevantEventTableSeeder
 php artisan make:seeder BoardsTableSeeder
 php artisan make:seeder EntitiesTableSeeder
 php artisan make:seeder SeasonsTableSeeder
+php artisan make:seeder WeeksTableSeeder
+php artisan make:seeder GamesTableSeeder
 
 php artisan make:seeder PagesTableSeeder
 php artisan make:seeder CategoriesTableSeeder

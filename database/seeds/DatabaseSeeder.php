@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
     $this->call(BoardsTableSeeder::class);
     $this->call(EntitiesTableSeeder::class);
     $this->call(SeasonsTableSeeder::class);
+    $this->call(WeeksTableSeeder::class);
+    $this->call(GamesTableSeeder::class);
     $this->call(CategoriesTableSeeder::class);
     $this->call(ElementsTableSeeder::class);
   }

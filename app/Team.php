@@ -12,9 +12,12 @@ class Team extends Model
   {
     return $this->MorphOne('App\Name', 'owner');
   }
-
   public function season()
   {
     return $this->belongsTo('App\Season');
+  }
+  public function games()
+  {
+    return $this->hasMany('App\Game');
   }
 }

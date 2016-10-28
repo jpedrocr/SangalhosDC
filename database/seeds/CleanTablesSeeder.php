@@ -14,6 +14,8 @@ use App\BoardMember;
 use App\Entity;
 use App\Season;
 use App\Team;
+use App\Week;
+use App\Game;
 use App\Page;
 use App\Category;
 use App\Post;
@@ -48,6 +50,8 @@ class CleanTablesSeeder extends Seeder
     Category::getQuery()->delete();
     Page::getQuery()->delete();
     User::getQuery()->delete();
+    Game::getQuery()->delete();
+    Week::getQuery()->delete();
     Team::getQuery()->delete();
     Season::getQuery()->delete();
     Entity::getQuery()->delete();
